@@ -5,7 +5,7 @@ install:
 	pip install -r requirements.txt
 
 format:
-	black *.py
+	black src/*.py
 
 train:
 	python3 src/train.py
