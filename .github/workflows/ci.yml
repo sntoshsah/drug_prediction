@@ -19,5 +19,13 @@ jobs:
         run: make format
       - name: Train
         run: make train
-    #   - name: Evaluation
-    #     run: make evaluate 
+      - name: Evaluation
+        env:
+            REPO_TOKEN: ${{ secrets.HUB_TOKEN }}
+        run: make evaluate 
+        
+      - name: Update Branch
+      env:
+        NAME: ${{ secrets.USER_NAME }}
+        EMAIL: ${{ secrets.USER_EMAIL }}
+      run: make update-branch USER_NAME=$NAME USER_EMAIL=$EMAIL
