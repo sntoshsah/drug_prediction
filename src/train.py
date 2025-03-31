@@ -8,7 +8,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OrdinalEncoder, StandardScaler
 
 ## Loading the Data
-drug_df = pd.read_csv("Data/drug.csv")
+drug_df = pd.read_csv("dataset/drug200.xls")
 drug_df = drug_df.sample(frac=1)
 
 ## Train Test Split
@@ -67,4 +67,4 @@ with open("./Results/metrics.txt", "w") as outfile:
     outfile.write(f"\nAccuracy = {round(accuracy, 2)}, F1 Score = {round(f1, 2)}")
 
 ## Saving the model file
-sio.dump(pipe, "./Model/drug_pipeline.skops")
+sio.dump(pipe, "./model/drug_pipeline.skops")

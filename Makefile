@@ -1,18 +1,20 @@
+.PHONY: install format train evaluate
+
 install:
-	pip install --upgrade pip &&\
-		pip install -r requirements.txt
+	pip install --upgrade pip && \
+	pip install -r requirements.txt
 
 format:
 	black *.py
 
 train:
-	python src/train.py
+	python3 src/train.py
 
 evaluate:
 	echo "Model Metrics" > report.md
 	cat ./Results/metrics.txt >> report.md
 
-	echo "\n ## Confusion Matrix Plot" >> report.md
+	echo "\n## Confusion Matrix Plot" >> report.md
 	echo "![Confusion Matrix](./Results/model_results.png)" >> report.md
 
 	cml comment create report.md
